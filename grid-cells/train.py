@@ -13,6 +13,13 @@
 # limitations under the License.
 # ==============================================================================
 
+# Izabele's directory:
+
+# import os
+# print("Current Working Directory " , os.getcwd())
+# os.chdir("/Users/Izabele/Documents/GitHub/ANCM-Mini-Project")
+
+
 """Supervised training for the Grid cell network."""
 
 from __future__ import absolute_import
