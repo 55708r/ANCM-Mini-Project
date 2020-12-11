@@ -1,0 +1,112 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 6 files
+Detected 2 issues that require attention
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+File: /Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/ensembles.py
+--------------------------------------------------------------------------------
+/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/ensembles.py:44:9: ERROR: Using member tf.contrib.distributions.OneHotCategorical in deprecated module tf.contrib. tf.contrib.distributions.OneHotCategorical cannot be converted automatically. tf.contrib will not be distributed with TensorFlow 2.0, please consider an alternative in non-contrib TensorFlow, a community-maintained repository such as tensorflow/addons, or fork the required code.
+--------------------------------------------------------------------------------
+File: /Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/dataset_reader.py
+--------------------------------------------------------------------------------
+/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/dataset_reader.py:25:7: ERROR: Using member tf.contrib.framework.nest in deprecated module tf.contrib. tf.contrib.framework.nest cannot be converted automatically. tf.contrib will not be distributed with TensorFlow 2.0, please consider an alternative in non-contrib TensorFlow, a community-maintained repository such as tensorflow/addons, or fork the required code.
+================================================================================
+Detailed log follows:
+
+================================================================================
+================================================================================
+Input tree: '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/'
+================================================================================
+--------------------------------------------------------------------------------
+Processing file '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/ensembles.py'
+ outputting to '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells_v3/ensembles.py'
+--------------------------------------------------------------------------------
+
+32:20: INFO: Added keywords to args of function 'tf.argmax'
+39:9: INFO: Renamed keyword argument for tf.nn.softmax from dim to axis
+44:9: ERROR: Using member tf.contrib.distributions.OneHotCategorical in deprecated module tf.contrib. tf.contrib.distributions.OneHotCategorical cannot be converted automatically. tf.contrib will not be distributed with TensorFlow 2.0, please consider an alternative in non-contrib TensorFlow, a community-maintained repository such as tensorflow/addons, or fork the required code.
+112:13: INFO: Added keywords to args of function 'tf.reduce_mean'
+114:13: INFO: Changing labels arg of tf.nn.softmax_cross_entropy_with_logits to tf.stop_gradient(labels). Please check this transformation.
+
+122:28: INFO: Added keywords to args of function 'tf.reduce_logsumexp'
+122:28: INFO: Renamed keyword argument for tf.reduce_logsumexp from keep_dims to keepdims
+140:24: INFO: Added keywords to args of function 'tf.reduce_sum'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/model.py'
+ outputting to '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells_v3/model.py'
+--------------------------------------------------------------------------------
+
+30:9: INFO: tf.truncated_normal_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+30:9: INFO: Renamed 'tf.truncated_normal_initializer' to 'tf.compat.v1.truncated_normal_initializer'
+94:37: INFO: Multiplying scale arg of tf.contrib.layers.l2_regularizer by half to what tf.keras.regularizers.l2 expects.
+
+98:6: INFO: Renamed 'tf.logging.info' to 'tf.compat.v1.logging.info'
+101:22: INFO: Changing keep_prob arg of tf.nn.dropout to rate, and recomputing value.
+
+109:17: INFO: Multiplying scale arg of tf.contrib.layers.l2_regularizer by half to what tf.keras.regularizers.l2 expects.
+
+159:30: INFO: Renamed 'tf.nn.dynamic_rnn' to 'tf.compat.v1.nn.dynamic_rnn'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/utils.py'
+ outputting to '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells_v3/utils.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/train.py'
+ outputting to '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells_v3/train.py'
+--------------------------------------------------------------------------------
+
+ERROR: Failed to parse.
+Traceback (most recent call last):
+  File "/Users/Izabele/Documents/PDP/venv/lib/python3.7/site-packages/tensorflow/tools/compatibility/ast_edits.py", line 940, in update_string_pasta
+    t = pasta.parse(text)
+  File "/Users/Izabele/Documents/PDP/venv/lib/python3.7/site-packages/pasta/__init__.py", line 23, in parse
+    t = ast_utils.parse(src)
+  File "/Users/Izabele/Documents/PDP/venv/lib/python3.7/site-packages/pasta/base/ast_utils.py", line 56, in parse
+    tree = ast.parse(sanitize_source(src))
+  File "/Users/Izabele/opt/anaconda3/lib/python3.7/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 26
+    !tf_upgrade_v2 \
+    ^
+SyntaxError: invalid syntax
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/dataset_reader.py'
+ outputting to '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells_v3/dataset_reader.py'
+--------------------------------------------------------------------------------
+
+25:7: ERROR: Using member tf.contrib.framework.nest in deprecated module tf.contrib. tf.contrib.framework.nest cannot be converted automatically. tf.contrib will not be distributed with TensorFlow 2.0, please consider an alternative in non-contrib TensorFlow, a community-maintained repository such as tensorflow/addons, or fork the required code.
+99:23: INFO: Renamed 'tf.train.string_input_producer' to 'tf.compat.v1.train.string_input_producer'
+100:15: INFO: Renamed 'tf.TFRecordReader' to 'tf.compat.v1.TFRecordReader'
+108:20: INFO: Renamed 'tf.RandomShuffleQueue' to 'tf.queue.RandomShuffleQueue'
+116:6: INFO: Renamed 'tf.train.add_queue_runner' to 'tf.compat.v1.train.add_queue_runner'
+116:32: INFO: Renamed 'tf.train.QueueRunner' to 'tf.compat.v1.train.QueueRunner'
+132:12: INFO: Renamed 'tf.FixedLenFeature' to 'tf.io.FixedLenFeature'
+134:12: INFO: Renamed 'tf.FixedLenFeature' to 'tf.io.FixedLenFeature'
+136:12: INFO: Renamed 'tf.FixedLenFeature' to 'tf.io.FixedLenFeature'
+140:12: INFO: Renamed 'tf.FixedLenFeature' to 'tf.io.FixedLenFeature'
+144:12: INFO: Renamed 'tf.FixedLenFeature' to 'tf.io.FixedLenFeature'
+148:14: INFO: Added keywords to args of function 'tf.parse_example'
+148:14: INFO: Renamed 'tf.parse_example' to 'tf.io.parse_example'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/scores.py'
+ outputting to '/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells_v3/scores.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+

@@ -13,11 +13,34 @@
 # limitations under the License.
 # ==============================================================================
 
-# Izabele's directory:
+# Izabele's setup:
 
-# import os
-# print("Current Working Directory " , os.getcwd())
-# os.chdir("/Users/Izabele/Documents/GitHub/ANCM-Mini-Project")
+# Activate environment
+#conda activate newergridshome
+
+# Activate the correct working directory
+#cd /Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/
+
+# If problems with directory, can perform a check:
+#x = 2
+#import numpy as np
+#np.array(x)
+#np.save("/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells", x)
+#np.load("/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells")
+#import os
+#os.listdir()
+
+###
+
+# upgrade the .py files and copy all the other files to the outtree
+#!tf_upgrade_v2 \
+    #--intree /Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/ \
+    #--outtree /Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells_v3/ \
+    #--reportfile tree_report.txt
+
+###
+#python train.py --task_root="/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells/" --saver_results_directory="/Users/Izabele/Documents/GitHub/ANCM-Mini-Project/grid-cells-output"
+#conda create --name newergridshome python=3.7
 
 
 """Supervised training for the Grid cell network."""
@@ -29,7 +52,7 @@ from __future__ import print_function
 import matplotlib
 import numpy as np
 import tensorflow as tf
-import Tkinter  # pylint: disable=unused-import
+#import Tkinter  # pylint: disable=unused-import
 
 matplotlib.use('Agg')
 
